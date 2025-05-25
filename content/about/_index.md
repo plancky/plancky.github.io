@@ -6,7 +6,7 @@ Last Updated: 07 April 2025
 
 Hi! My name is Shashvat Jain, and I find joy in playing around with computer software.
 
-I am a software engineer at [487 studios](https://www.foureightseven.studio/ "Foureightseven"), where I am mostly involved in web development related work. I also hold a bachelor's degree in Physics, contributing to my broad range of analytical and problem-solving skills.
+I am a software engineer at [487 studios](https://www.foureightseven.studio/ "Foureightseven"), where I am mostly involved in web development related work. I also hold a bachelor's degree in Physics; I still have a go at interesting problems when I find them.
 
 As of early 2025, I have started to read about western history, and I have been having fun playing basketball on the regular. From the top of my mind some of my major interests are, but not limited to, table tennis, bouldering, computer graphics, game dev, and Artifical Intelligence.
 
