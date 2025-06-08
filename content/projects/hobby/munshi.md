@@ -3,7 +3,7 @@ title: "Munshi"
 build:
     render: never
 params:
-    url: 'https://munshi-ebon.vercel.app/'
+    url: 'https://munshi-ai-beryl.vercel.app/'
     thumbnail: "/projects/imgs/munshi_thumbnail.png"
     tags:
         - Nextjs
