@@ -21,8 +21,3 @@ I aim to use this site as a platform to share myself and the cool things I learn
 As I write this, or anything related to me, I feel a pull towards artificial sophistry which makes it difficult to share actual experiences. I believe this is because of an unconscious struggle in our minds to avoid embarrassment, the kind you feel when you make a dumb mistake. I connect with what Andrew says [here](https://boz.com/about). I will try my best to share experiences as they are.
 
 I hope to be more active this year with writing!
-
-You can find me at,
-
-- mail: [shashvat817@gmail.com](mailto:shashvat817@gmail.com)
-- twitter: [planck0](https://x.com/planck0)

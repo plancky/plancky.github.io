@@ -3,7 +3,7 @@ title: "Munshi"
 build:
     render: never
 params:
-    url: 'https://munshi-ai-beryl.vercel.app/'
+    url: 'https://demo.trymunshi.app/'
     thumbnail: "/projects/imgs/munshi_thumbnail.png"
     tags:
         - Nextjs
@@ -17,4 +17,4 @@ params:
 weight: 1
 ---
 
-An AI assistant that transcribes long-format YT videos using OpenAI Whisper. Frontend in React + NextJS, Backend in FastAPI and Deployed LLM on modal.com.(A Python Framework for distributed systems)
+Built an AI-powered transcription system for long-form YouTube videos using state-of-the-art ASR models for high-accuracy speech recognition. Implemented a React + Next.js frontend and a FastAPI backend, with scalable inference workloads deployed on Modal for distributed processing.
