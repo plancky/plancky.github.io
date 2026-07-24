@@ -1,0 +1,100 @@
+{{/* Decorative parallax clouds — makes the home-page rocket read as flying through them.
+     Styles live in assets/scss/animation.scss (.cloud / .cloud__img / cloud-drift). */}}
+
+{{/* Cloud sprite: geometry + clip defined once, reused via <use href="#cloud"> so the
+     `cloudClip` id never collides across instances. */}}
+<svg
+    width="0"
+    height="0"
+    aria-hidden="true"
+    style="position: absolute; overflow: hidden">
+    <symbol id="cloud" viewBox="0 0 640 400">
+        <defs>
+            <clipPath id="cloudClip">
+                <circle cx="152" cy="262" r="42" />
+                <circle cx="200" cy="235" r="68" />
+                <circle cx="305" cy="190" r="105" />
+                <circle cx="415" cy="225" r="80" />
+                <circle cx="480" cy="258" r="45" />
+                <rect x="150" y="245" width="340" height="58" rx="29" />
+            </clipPath>
+        </defs>
+        <g fill="#2B3A55">
+            <circle cx="152" cy="262" r="51" />
+            <circle cx="200" cy="235" r="77" />
+            <circle cx="305" cy="190" r="114" />
+            <circle cx="415" cy="225" r="89" />
+            <circle cx="480" cy="258" r="54" />
+            <rect x="141" y="236" width="358" height="76" rx="38" />
+        </g>
+        <g fill="#F2F8FF">
+            <circle cx="152" cy="262" r="42" />
+            <circle cx="200" cy="235" r="68" />
+            <circle cx="305" cy="190" r="105" />
+            <circle cx="415" cy="225" r="80" />
+            <circle cx="480" cy="258" r="45" />
+            <rect x="150" y="245" width="340" height="58" rx="29" />
+        </g>
+        <g clip-path="url(#cloudClip)">
+            <ellipse cx="320" cy="420" rx="260" ry="150" fill="#D6E4F6" />
+            <ellipse cx="280" cy="120" rx="190" ry="90" fill="#FFFFFF" />
+        </g>
+    </symbol>
+</svg>
+
+{{/* Parallax sets: far/small/slow drift behind the rocket, near/large/fast in front.
+     Negative --delay staggers the loop so clouds start already mid-flight (no empty gap).
+     --rest is the resting X used only under prefers-reduced-motion. */}}
+{{ $back := slice
+    (dict "top" "12%" "scale" "0.45" "dur" "55s" "delay" "-5s" "rest" "18vw" "opacity" "0.6")
+    (dict "top" "30%" "scale" "0.6" "dur" "46s" "delay" "-22s" "rest" "62vw" "opacity" "0.7")
+    (dict "top" "58%" "scale" "0.5" "dur" "60s" "delay" "-38s" "rest" "38vw" "opacity" "0.55")
+    (dict "top" "70%" "scale" "0.8" "dur" "40s" "delay" "-12s" "rest" "78vw" "opacity" "0.75")
+}}
+{{ $front := slice
+    (dict "top" "8%" "scale" "1.05" "dur" "30s" "delay" "-18s" "rest" "70vw" "opacity" "0.95")
+    (dict "top" "48%" "scale" "0.9" "dur" "34s" "delay" "-3s" "rest" "12vw" "opacity" "0.9")
+    (dict "top" "78%" "scale" "1.15" "dur" "26s" "delay" "-14s" "rest" "45vw" "opacity" "0.92")
+}}
+
+{{/* Behind the rocket (z-0, above the shader at -z-10) */}}
+<section
+    class="pointer-events-none !fixed inset-0 z-0 row-span-full overflow-hidden"
+    aria-hidden="true">
+    {{ range $back }}
+        <div
+            class="cloud"
+            style="--top: {{ .top }}; --dur: {{ .dur }}; --delay: {{ .delay }}; --rest: {{ .rest }}">
+            <svg
+                class="cloud__img"
+                style="--scale: {{ .scale }}; --opacity: {{ .opacity }}"
+                viewBox="0 0 640 400"
+                width="640"
+                height="400"
+                aria-hidden="true">
+                <use href="#cloud" />
+            </svg>
+        </div>
+    {{ end }}
+</section>
+
+{{/* In front of the rocket (z-20, still below the header at z-50) */}}
+<section
+    class="pointer-events-none !fixed inset-0 z-20 row-span-full overflow-hidden"
+    aria-hidden="true">
+    {{ range $front }}
+        <div
+            class="cloud"
+            style="--top: {{ .top }}; --dur: {{ .dur }}; --delay: {{ .delay }}; --rest: {{ .rest }}">
+            <svg
+                class="cloud__img"
+                style="--scale: {{ .scale }}; --opacity: {{ .opacity }}"
+                viewBox="0 0 640 400"
+                width="640"
+                height="400"
+                aria-hidden="true">
+                <use href="#cloud" />
+            </svg>
+        </div>
+    {{ end }}
+</section>

@@ -1,5 +1,6 @@
 {{ define "page" }}
     {{ .Content | safeHTML }}
+    {{ partial "components/clouds" . }}
     <section
         class="#w-[1080px] #h-[520px] !fixed inset-0 z-10 row-span-full flex max-h-full w-full items-center justify-center overflow-hidden text-accent-foreground opacity-70">
         {{ partial "components/rocket" . }}
