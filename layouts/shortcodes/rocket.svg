@@ -516,13 +516,34 @@
          id="path1401"
          class="rocket" />
     </g>
-    <path
-       style="display:inline;opacity:1;fill:none;fill-opacity:0.960207;stroke:#161616;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
-       d="m 148.69444,45.757911 c 0,0 -5.79363,-8.781538 -16.59538,-7.996534 -16.86444,0.352331 -15.57451,-8.287384 -16.3664,-10.279905 -0.7919,-1.992522 -3.02122,-3.406604 -3.02122,-3.406604"
-       id="path7"
-       sodipodi:nodetypes="ccsc"
+    <g
        inkscape:label="arms"
-       transform="translate(47.792192,73.873437)" />
+       transform="translate(47.792192,73.873437)">
+      <path
+         style="display:inline;opacity:1;fill:none;fill-opacity:0.960207;stroke:#161616;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         d="m 148.69444,45.757911 c 0,0 -5.79363,-8.781538 -16.59538,-7.996534"
+         id="path7"
+         sodipodi:nodetypes="cc"
+         inkscape:label="arm-down" />
+      <g id="arm_wave_pivot">
+        <path
+           style="display:inline;opacity:1;fill:none;fill-opacity:0.960207;stroke:#161616;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+           d="m 132.09906,37.761377 c -16.86444,0.352331 -15.57451,-8.287384 -16.3664,-10.279905 -0.7919,-1.992522 -3.02122,-3.406604 -3.02122,-3.406604"
+           id="arm_wave"
+           sodipodi:nodetypes="cc"
+           inkscape:label="arm-wave" />
+        <animateTransform
+           attributeName="transform"
+           attributeType="XML"
+           type="rotate"
+           values="-13 132.09906 37.761377; 13 132.09906 37.761377; -13 132.09906 37.761377"
+           keyTimes="0;0.5;1"
+           calcMode="spline"
+           keySplines="0.42 0 0.58 1;0.42 0 0.58 1"
+           dur="1.1s"
+           repeatCount="indefinite" />
+      </g>
+    </g>
     <path
        style="display:inline;opacity:1;fill:none;fill-opacity:0.960207;stroke:#161616;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
        d="m 179.85125,103.23049 c -1.56407,13.13298 4.19175,21.79356 4.19175,21.79356 -7.45623,12.30413 -1.49689,20.11628 -1.49689,20.11628 2.3786,4.54797 -1.22846,5.78243 -2.50167,7.59189"
