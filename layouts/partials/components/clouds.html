@@ -8,53 +8,89 @@
     height="0"
     aria-hidden="true"
     style="position: absolute; overflow: hidden">
-    <symbol id="cloud" viewBox="0 0 640 400">
+    <symbol id="cloud" viewBox="0 0 480.23712 300">
         <defs>
-            <clipPath id="cloudClip">
-                <circle cx="152" cy="262" r="42" />
-                <circle cx="200" cy="235" r="68" />
-                <circle cx="305" cy="190" r="105" />
-                <circle cx="415" cy="225" r="80" />
-                <circle cx="480" cy="258" r="45" />
-                <rect x="150" y="245" width="340" height="58" rx="29" />
+            <linearGradient
+                id="linearGradientBody"
+                x1="0"
+                y1="55.49724"
+                x2="0"
+                y2="245.49724"
+                gradientUnits="userSpaceOnUse">
+                <stop offset="0" style="stop-color:#ffffff;stop-opacity:1" />
+                <stop offset="1" style="stop-color:hsl(var(--accent));stop-opacity:1" />
+            </linearGradient>
+            <linearGradient
+                id="linearGradientGlow"
+                x1="0"
+                y1="245.49724"
+                x2="0"
+                y2="149.49724"
+                gradientUnits="userSpaceOnUse">
+                <stop offset="0" style="stop-color:#8d2625;stop-opacity:0.3" />
+                <stop offset="1" style="stop-color:#8d2625;stop-opacity:0" />
+            </linearGradient>
+            <filter
+                id="filterSoft"
+                style="color-interpolation-filters:sRGB"
+                x="-0.05"
+                y="-0.35"
+                width="1.1"
+                height="1.7">
+                <feGaussianBlur stdDeviation="3.4" />
+            </filter>
+            <clipPath clipPathUnits="userSpaceOnUse" id="cloudClip">
+                <path
+                    d="M 117.47675,228.0115 C 106.0363,230.81074 93.98443,229.64325 83.294,224.70014 C 72.60356,219.75703 63.90788,211.33114 58.6304,200.80175 C 53.35292,190.27237 51.80629,178.26328 54.24368,166.7403 C 56.68107,155.21733 62.9581,144.86314 72.04723,137.37265 C 81.13636,129.88216 92.49914,125.69913 104.27553,125.50831 C 107.56326,112.76953 114.47575,101.258 124.17501,92.36925 C 133.87428,83.48049 145.94379,77.59622 158.9204,75.42978 C 171.897,73.26334 185.22343,74.90776 197.28415,80.16369 C 209.13308,67.07048 225.07421,58.38536 242.50033,55.5288 C 259.92644,52.67224 277.80617,55.81331 293.21524,64.43827 C 308.62431,73.06324 320.65072,86.66163 327.32754,103.0094 C 342.54312,101.01692 357.94382,104.93008 370.36273,113.94421 C 382.78164,122.95833 391.27475,136.3882 394.09558,151.47219 C 403.45369,153.51983 411.83063,158.705 417.83695,166.16765 C 423.84326,173.6303 427.11801,182.92198 427.11801,192.50149 C 427.11801,201.09477 424.48209,209.48127 419.56594,216.52939 C 414.64978,223.57751 407.68998,228.94803 399.62562,231.91632 C 391.56126,234.88461 382.78047,235.3078 374.46804,233.12879 C 366.15561,230.94979 358.7116,226.27346 353.14043,219.73078 C 349.30543,220.93848 345.35874,221.75765 341.35989,222.17593 C 335.59561,230.00771 327.44943,235.76153 318.14117,238.57581 C 308.83291,241.39008 298.86346,241.11337 289.72563,237.78712 C 280.58781,234.46086 272.77333,228.26405 267.45233,220.12459 C 261.85915,230.59103 252.58706,238.61451 241.42576,242.64633 C 230.26446,246.67815 218.00527,246.43245 207.01448,241.95666 C 196.0237,237.48087 187.08053,229.09232 181.91121,218.41017 C 177.22289,225.06811 170.81582,230.32913 163.37293,233.63247 C 155.93004,236.9358 147.73028,238.15764 139.64766,237.16775 C 131.56504,236.17786 123.90249,233.01334 117.47675,228.0115 Z" />
             </clipPath>
         </defs>
-        <g fill="#2B3A55">
-            <circle cx="152" cy="262" r="51" />
-            <circle cx="200" cy="235" r="77" />
-            <circle cx="305" cy="190" r="114" />
-            <circle cx="415" cy="225" r="89" />
-            <circle cx="480" cy="258" r="54" />
-            <rect x="141" y="236" width="358" height="76" rx="38" />
-        </g>
-        <g fill="#F2F8FF">
-            <circle cx="152" cy="262" r="42" />
-            <circle cx="200" cy="235" r="68" />
-            <circle cx="305" cy="190" r="105" />
-            <circle cx="415" cy="225" r="80" />
-            <circle cx="480" cy="258" r="45" />
-            <rect x="150" y="245" width="340" height="58" rx="29" />
-        </g>
-        <g clip-path="url(#cloudClip)">
-            <ellipse cx="320" cy="420" rx="260" ry="150" fill="#D6E4F6" />
-            <ellipse cx="280" cy="120" rx="190" ry="90" fill="#FFFFFF" />
+        <g>
+            <path
+                id="cloud_body"
+                style="display:inline;opacity:1;fill:url(#linearGradientBody);fill-opacity:1;stroke:#000000;stroke-width:0.567143;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                d="M 117.47675,228.0115 C 106.0363,230.81074 93.98443,229.64325 83.294,224.70014 C 72.60356,219.75703 63.90788,211.33114 58.6304,200.80175 C 53.35292,190.27237 51.80629,178.26328 54.24368,166.7403 C 56.68107,155.21733 62.9581,144.86314 72.04723,137.37265 C 81.13636,129.88216 92.49914,125.69913 104.27553,125.50831 C 107.56326,112.76953 114.47575,101.258 124.17501,92.36925 C 133.87428,83.48049 145.94379,77.59622 158.9204,75.42978 C 171.897,73.26334 185.22343,74.90776 197.28415,80.16369 C 209.13308,67.07048 225.07421,58.38536 242.50033,55.5288 C 259.92644,52.67224 277.80617,55.81331 293.21524,64.43827 C 308.62431,73.06324 320.65072,86.66163 327.32754,103.0094 C 342.54312,101.01692 357.94382,104.93008 370.36273,113.94421 C 382.78164,122.95833 391.27475,136.3882 394.09558,151.47219 C 403.45369,153.51983 411.83063,158.705 417.83695,166.16765 C 423.84326,173.6303 427.11801,182.92198 427.11801,192.50149 C 427.11801,201.09477 424.48209,209.48127 419.56594,216.52939 C 414.64978,223.57751 407.68998,228.94803 399.62562,231.91632 C 391.56126,234.88461 382.78047,235.3078 374.46804,233.12879 C 366.15561,230.94979 358.7116,226.27346 353.14043,219.73078 C 349.30543,220.93848 345.35874,221.75765 341.35989,222.17593 C 335.59561,230.00771 327.44943,235.76153 318.14117,238.57581 C 308.83291,241.39008 298.86346,241.11337 289.72563,237.78712 C 280.58781,234.46086 272.77333,228.26405 267.45233,220.12459 C 261.85915,230.59103 252.58706,238.61451 241.42576,242.64633 C 230.26446,246.67815 218.00527,246.43245 207.01448,241.95666 C 196.0237,237.48087 187.08053,229.09232 181.91121,218.41017 C 177.22289,225.06811 170.81582,230.32913 163.37293,233.63247 C 155.93004,236.9358 147.73028,238.15764 139.64766,237.16775 C 131.56504,236.17786 123.90249,233.01334 117.47675,228.0115 Z" />
+            <g id="cloud_shading" clip-path="url(#cloudClip)">
+                <rect
+                    id="cloud_underglow"
+                    style="mix-blend-mode:multiply;fill:url(#linearGradientGlow);fill-opacity:1;stroke-width:0;filter:url(#filterSoft)"
+                    x="0"
+                    y="149.49724"
+                    width="480.23712"
+                    height="112" />
+            </g>
+            <g id="cloud_panel_lines" fill="none" stroke="#000000" stroke-width="0.264583">
+                <path id="cloud_seam0" d="M 104.27553,125.50831 C 113.03588,125.36636 121.69008,127.44022 129.4346,131.53733 C 137.17912,135.63445 143.76286,141.62198 148.57453,148.94398" />
+                <path id="cloud_seam1" d="M 197.28415,80.16369 C 207.29894,84.52803 216.11481,91.24099 222.9855,99.73435 C 229.85619,108.2277 234.57944,118.25139 236.75542,128.95693" />
+                <path id="cloud_seam2" d="M 327.32754,103.0094 C 317.40784,104.30838 307.97041,108.06716 299.8739,113.94375 C 291.7774,119.82035 285.27885,127.6282 280.96953,136.6569" />
+                <path id="cloud_seam3" d="M 394.09558,151.47219 C 386.20405,149.74545 377.98197,150.33118 370.41491,153.15915 C 362.84785,155.98713 356.25688,160.93737 351.43206,167.41649" />
+                <path id="cloud_seam4" d="M 107.19336,168.27916 C 112.69061,159.67217 120.95206,153.19109 130.62027,149.90083 C 140.28848,146.61057 150.78833,146.70686 160.39457,150.17387" />
+                <path id="cloud_seam5" d="M 186.3153,169.24639 C 192.31732,161.00382 200.78817,154.88666 210.50013,151.78149 C 220.21209,148.67633 230.66055,148.74449 240.33116,151.97611" />
+                <path id="cloud_seam6" d="M 275.12046,161.95827 C 282.74057,155.14364 292.45387,151.12666 302.6614,150.56859 C 312.86892,150.01052 322.96226,152.94461 331.27988,158.88787" />
+            </g>
+            <path
+                id="cloud_highlight"
+                style="fill:none;stroke:#ffffff;stroke-width:0.413391;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.9;paint-order:stroke fill markers"
+                d="M 169.43663,223.62791 C 163.04888,228.61857 155.28034,231.52311 147.18528,231.94735 C 139.09021,232.3716 131.06062,230.295 124.18619,225.99938" />
         </g>
     </symbol>
 </svg>
 
-{{/* Parallax sets: far/small/slow drift behind the rocket, near/large/fast in front.
+{{/* Parallax sets: far/small/slow/fainter drift behind the rocket, near/large/fast/solid in front.
      Negative --delay staggers the loop so clouds start already mid-flight (no empty gap).
-     --rest is the resting X used only under prefers-reduced-motion. */}}
+     --vdrift: downward travel across the traverse — clouds sink so the rocket reads as ascending
+       (larger for near/front clouds). --vibdur: per-cloud jitter period (desynced). --opacity rises
+       with depth: front clouds near-solid, back clouds airier. --rest is the resting X under
+       prefers-reduced-motion. */}}
 {{ $back := slice
-    (dict "top" "12%" "scale" "0.45" "dur" "55s" "delay" "-5s" "rest" "18vw" "opacity" "0.6")
-    (dict "top" "30%" "scale" "0.6" "dur" "46s" "delay" "-22s" "rest" "62vw" "opacity" "0.7")
-    (dict "top" "58%" "scale" "0.5" "dur" "60s" "delay" "-38s" "rest" "38vw" "opacity" "0.55")
-    (dict "top" "70%" "scale" "0.8" "dur" "40s" "delay" "-12s" "rest" "78vw" "opacity" "0.75")
+    (dict "top" "12%" "scale" "0.6" "dur" "47s" "delay" "-5s" "rest" "18vw" "opacity" "0.78" "vdrift" "9vh" "vibdur" "6s")
+    (dict "top" "30%" "scale" "0.8" "dur" "39s" "delay" "-22s" "rest" "62vw" "opacity" "0.85" "vdrift" "12vh" "vibdur" "5.5s")
+    (dict "top" "58%" "scale" "0.67" "dur" "51s" "delay" "-38s" "rest" "38vw" "opacity" "0.75" "vdrift" "8vh" "vibdur" "6.5s")
+    (dict "top" "70%" "scale" "1.07" "dur" "34s" "delay" "-12s" "rest" "78vw" "opacity" "0.88" "vdrift" "13vh" "vibdur" "5s")
 }}
 {{ $front := slice
-    (dict "top" "8%" "scale" "1.05" "dur" "30s" "delay" "-18s" "rest" "70vw" "opacity" "0.95")
-    (dict "top" "48%" "scale" "0.9" "dur" "34s" "delay" "-3s" "rest" "12vw" "opacity" "0.9")
-    (dict "top" "78%" "scale" "1.15" "dur" "26s" "delay" "-14s" "rest" "45vw" "opacity" "0.92")
+    (dict "top" "8%" "scale" "1.4" "dur" "25s" "delay" "-18s" "rest" "70vw" "opacity" "0.97" "vdrift" "21vh" "vibdur" "4s")
+    (dict "top" "48%" "scale" "1.2" "dur" "29s" "delay" "-3s" "rest" "12vw" "opacity" "1" "vdrift" "18vh" "vibdur" "4.5s")
+    (dict "top" "78%" "scale" "1.53" "dur" "22s" "delay" "-14s" "rest" "45vw" "opacity" "0.95" "vdrift" "23vh" "vibdur" "3.5s")
 }}
 
 {{/* Behind the rocket (z-0, above the shader at -z-10) */}}
@@ -64,13 +100,13 @@
     {{ range $back }}
         <div
             class="cloud"
-            style="--top: {{ .top }}; --dur: {{ .dur }}; --delay: {{ .delay }}; --rest: {{ .rest }}">
+            style="--top: {{ .top }}; --dur: {{ .dur }}; --delay: {{ .delay }}; --rest: {{ .rest }}; --vdrift: {{ .vdrift }}; --vibdur: {{ .vibdur }}">
             <svg
                 class="cloud__img"
                 style="--scale: {{ .scale }}; --opacity: {{ .opacity }}"
-                viewBox="0 0 640 400"
-                width="640"
-                height="400"
+                viewBox="0 0 480.23712 300"
+                width="480.23712"
+                height="300"
                 aria-hidden="true">
                 <use href="#cloud" />
             </svg>
@@ -85,13 +121,13 @@
     {{ range $front }}
         <div
             class="cloud"
-            style="--top: {{ .top }}; --dur: {{ .dur }}; --delay: {{ .delay }}; --rest: {{ .rest }}">
+            style="--top: {{ .top }}; --dur: {{ .dur }}; --delay: {{ .delay }}; --rest: {{ .rest }}; --vdrift: {{ .vdrift }}; --vibdur: {{ .vibdur }}">
             <svg
                 class="cloud__img"
                 style="--scale: {{ .scale }}; --opacity: {{ .opacity }}"
-                viewBox="0 0 640 400"
-                width="640"
-                height="400"
+                viewBox="0 0 480.23712 300"
+                width="480.23712"
+                height="300"
                 aria-hidden="true">
                 <use href="#cloud" />
             </svg>

@@ -44,14 +44,41 @@
 }
 
 /* Parallax clouds for the home page (see partials/components/clouds.html).
-   Outer .cloud owns the horizontal travel; inner .cloud__img owns scale/opacity
-   so scaling stays out of the translateX keyframe. */
+   Outer .cloud owns the horizontal+vertical travel (transform) and a subtle margin-based
+   jitter; inner .cloud__img owns scale/opacity so scaling stays out of the drift keyframe.
+   The downward --vdrift makes clouds sink as they cross, so the rocket reads as ascending. */
 @keyframes cloud-drift {
     from {
-        transform: translateX(100vw);
+        transform: translate(100vw, calc(var(--vdrift, 10vh) * -0.5));
     }
     to {
-        transform: translateX(calc(-100% - 200px)); /* clears the left edge even when scaled up */
+        /* clears the left edge even when scaled up; sinks by --vdrift over the traverse */
+        transform: translate(calc(-100% - 200px), calc(var(--vdrift, 10vh) * 0.5));
+    }
+}
+
+/* Subtle shake — margin-based (like #rocket_figure) so it composes with the drift transform. */
+@keyframes cloud-vibrate {
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+    20% {
+        margin-left: 3px;
+        margin-top: -4px;
+    }
+    40% {
+        margin-left: -3px;
+        margin-top: 2px;
+    }
+    60% {
+        margin-left: 4px;
+        margin-top: 3px;
+    }
+    80% {
+        margin-left: -2px;
+        margin-top: -3px;
     }
 }
 
@@ -59,8 +86,10 @@
     position: absolute;
     top: var(--top, 20%);
     left: 0;
-    will-change: transform;
-    animation: cloud-drift var(--dur, 40s) linear var(--delay, 0s) infinite;
+    will-change: transform, margin;
+    animation:
+        cloud-drift var(--dur, 40s) linear var(--delay, 0s) infinite,
+        cloud-vibrate var(--vibdur, 5s) ease-in-out var(--delay, 0s) infinite;
 }
 
 .cloud__img {
@@ -71,7 +100,7 @@
 }
 
 .dark .cloud__img {
-    opacity: calc(var(--opacity, 0.85) * 0.6); /* soften bright clouds on the dark background */
+    opacity: calc(var(--opacity, 0.85) * 0.72); /* soften bright clouds on the dark background */
 }
 
 @media (prefers-reduced-motion: reduce) {
