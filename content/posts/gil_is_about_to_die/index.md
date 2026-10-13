@@ -2,6 +2,7 @@
 title: "Py_INCREF Got Three Fields: Inside CPython's Free-Threaded Build"
 date: 2026-10-13
 description: "Reading through the CPython source to see how a rewritten reference count let Python run without its Global Interpreter Lock, and why the GIL's days are numbered."
+slug: "gil_is_about_to_die"
 draft: false
 hideToc: true
 enableToc: false
