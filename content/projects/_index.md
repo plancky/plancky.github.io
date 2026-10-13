@@ -1,5 +1,7 @@
 ---
 title: "Projects"
+outputs:
+    - HTML
 aliases:
 - /projects/
 ---

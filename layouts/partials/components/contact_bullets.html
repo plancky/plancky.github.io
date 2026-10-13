@@ -27,4 +27,16 @@
             </li>
         {{ end }}
     {{ end }}
+    {{ with site.Home.OutputFormats.Get "rss" }}
+        <li class="nav-item">
+            <a
+                class="nav-link active"
+                target="_blank"
+                rel="noopener"
+                type="application/rss+xml"
+                href="{{ .Permalink }}"
+                >rss</a
+            >
+        </li>
+    {{ end }}
 </ul>

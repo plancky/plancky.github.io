@@ -1,0 +1,57 @@
+{{- /* Posts-only feed. Home lists every post; sections and taxonomy terms list their own pages. */ -}}
+{{- $pages := .RegularPages -}}
+{{- if .IsHome -}}
+    {{- $pages = where site.RegularPages "Section" "posts" -}}
+{{- end -}}
+{{- $pages = where $pages "Draft" false -}}
+{{- $pages = where $pages "Params.build.render" "!=" "never" -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+    {{- $pages = $pages.ByDate.Reverse | first $limit -}}
+{{- else -}}
+    {{- $pages = $pages.ByDate.Reverse -}}
+{{- end -}}
+{{- $author := site.Params.author -}}
+{{- $title := site.Title -}}
+{{- if not .IsHome -}}
+    {{- $title = printf "%s | %s" .Title site.Title -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>{{ $title }}</title>
+        <link>{{ .Permalink }}</link>
+        <description>{{ with site.Home.Description }}{{ . }}{{ else }}Recent posts on {{ site.Title }}{{ end }}</description>
+        <generator>Hugo</generator>
+        <language>{{ site.LanguageCode }}</language>
+        {{- with $author.email }}
+        <managingEditor>{{ . }}{{ with $author.name }} ({{ . }}){{ end }}</managingEditor>
+        <webMaster>{{ . }}{{ with $author.name }} ({{ . }}){{ end }}</webMaster>
+        {{- end }}
+        {{- with $pages }}
+        <lastBuildDate>{{ (index . 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+        {{- end }}
+        {{- with .OutputFormats.Get "RSS" }}
+        {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+        {{- end }}
+        {{- range $pages }}
+        {{- $base := .Permalink }}
+        {{- /* Posts are page bundles with relative image/link paths; make them absolute for feed readers. */ -}}
+        {{- $content := .Content | replaceRE `(src|href)="([^"#:/][^":]*)"` (printf `$1="%s$2"` $base) }}
+        <item>
+            <title>{{ .Title }}</title>
+            <link>{{ .Permalink }}</link>
+            <guid isPermaLink="true">{{ .Permalink }}</guid>
+            <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+            {{- with $author.email }}
+            <author>{{ . }}{{ with $author.name }} ({{ . }}){{ end }}</author>
+            {{- end }}
+            {{- range .Params.categories }}
+            <category>{{ . }}</category>
+            {{- end }}
+            <description>{{ with .Description }}{{ . | transform.XMLEscape | safeHTML }}{{ else }}{{ .Summary | transform.XMLEscape | safeHTML }}{{ end }}</description>
+            <content:encoded>{{ $content | transform.XMLEscape | safeHTML }}</content:encoded>
+        </item>
+        {{- end }}
+    </channel>
+</rss>

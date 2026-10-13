@@ -62,3 +62,6 @@ target = '$1'
 # [[params.plugins.css]]
 # link = "plugins/font-awesome/v6/icons.css"
 # lazy = true
+############################# RSS ################################
+[services.rss]
+limit = 20
