@@ -1,0 +1,7 @@
+<ul class="flex flex-col gap-10">
+    {{ range . }}
+        <li class="w-fit text-left">
+            {{ partial "components/link" (dict "context" . "link_permalink" .RelPermalink "link_name" .Title ) }}
+        </li>
+    {{ end }}
+</ul>

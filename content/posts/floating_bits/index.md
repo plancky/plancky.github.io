@@ -18,7 +18,7 @@ tags:
     - Computer Science
     - Computational Physics
 categories:
-    - Computer Science
+    - engineering
 ---
 
 What do Roman numerals, Tally marks, Decimal and Binary number systems have in common? They are all used to describe **Quantity** or the **number of things**, each with its unique style motivated by a particular usecase.

@@ -13,7 +13,7 @@ tags:
     - Philosophy
     - Existentialism
 categories:
-    - Philosophy
+    - life
 ---
 
 This is more of a monologue and has to be one, you cannot talk of your faith without talking about yourself. Before I discuss the place of "absence of reason" in human life, I would like to discuss my own battles with faith.

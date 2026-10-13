@@ -1,0 +1,7 @@
+{{ define "page" }}
+    <section class="flex flex-col gap-8">
+        <a href="{{ (site.GetPage "/posts").RelPermalink }}">Back to Posts</a>
+        <h1>{{ .Title }}</h1>
+        {{ partial "components/post_list" .Pages }}
+    </section>
+{{ end }}

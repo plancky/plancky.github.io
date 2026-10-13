@@ -30,8 +30,23 @@ thead {
     @apply bg-accent bg-opacity-50;
 }
 
-#articleContainer a {
-    @apply text-accent-foreground underline;
+#articleContainer a,
+#PostContainer a:not(#TableOfContents a) {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-color: #{"hsl(var(--accent))"};
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    border-radius: 2px;
+    transition:
+        background-color 150ms ease,
+        text-decoration-color 150ms ease;
+
+    &:hover,
+    &:focus-visible {
+        background-color: #{"hsl(var(--accent) / 0.25)"};
+        text-decoration-color: transparent;
+    }
 }
 
 td,

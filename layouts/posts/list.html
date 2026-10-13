@@ -2,10 +2,15 @@
     <section>
         <ul class="flex flex-col gap-10">
             {{ range .RegularPages }}
-                <li class="w-fit text-left">
-                    {{ $permalink := .RelPermalink }}
-                    {{ $name := .Title }}
-                    {{ partial "components/link" (dict "context" . "link_permalink" $permalink "link_name" $name ) }}
+                <li class="flex items-baseline gap-4 text-left">
+                    {{ partial "components/link" (dict "context" . "link_permalink" .RelPermalink "link_name" .Title ) }}
+                    {{ range .GetTerms "categories" }}
+                        <a
+                            href="{{ .RelPermalink }}"
+                            class="text-sm text-accent hover:underline"
+                            >{{ .Title }}</a
+                        >
+                    {{ end }}
                 </li>
             {{ end }}
         </ul>

@@ -33,6 +33,9 @@
                 {{ end }}
             </div>
             <div class="flex gap-4">
+                {{ range .GetTerms "categories" }}
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                {{ end }}
                 <span>{{ .Date | time.Format ":date_medium" }} </span>
                 {{ with .Params.updated_at }}
                     <span

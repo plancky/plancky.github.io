@@ -1,15 +1,19 @@
 ---
-title: "The GIL Isn't Dead, It's Optional: A Tour of the Code That Made It Possible"
+title: "Py_INCREF Got Three Fields: Inside CPython's Free-Threaded Build"
 date: 2026-10-13
-description: "Reading through the CPython source to see how Python learned to run without its Global Interpreter Lock, and what the core team has officially committed to."
+description: "Reading through the CPython source to see how a rewritten reference count let Python run without its Global Interpreter Lock, and why the GIL's days are numbered."
 draft: false
 hideToc: true
 enableToc: false
+categories:
+    - engineering
 ---
 
-You've probably seen headlines like "Python removes the GIL." That isn't accurate yet. What happened is more interesting: CPython now ships **two interpreters built from one codebase**. One is the familiar build with the GIL. The other is a *free-threaded* build where it's gone. Getting there took almost 30 years of failed attempts, one very determined engineer, and a set of clever tricks around reference counting.
+Open up an object in a free-threaded CPython build and its reference count is gone. In its place are three fields: the id of the thread that owns the object, a local count, and a shared count. `Py_INCREF`, which runs more often than almost anything else in the interpreter, now checks which thread is calling before it decides how to count. That one change is the reason Python can finally run without its Global Interpreter Lock.
 
-This post covers why the core team wanted the GIL gone, why earlier attempts failed, and where the new code lives in the CPython source. All code links point to a fixed commit on `main` ([`c04ad8c`](https://github.com/python/cpython/tree/c04ad8ce36e35fba85468eec8a54f1688fa16972), October 2026, which is 3.16.0 alpha).
+**And the GIL is going to die.** CPython already ships **two interpreters built from one codebase**: the familiar build with the GIL, and a *free-threaded* build without it. The free-threaded build is optional for now, but the Steering Council's stated long-term goal is to make it the default and to "remove any vestiges of the GIL." Every release since 3.13 has moved further that way: experimental, then officially supported, then given its own stable ABI. Nobody has set a date yet, but the direction is settled. Getting here took almost 30 years of failed attempts, one very determined engineer, and a set of clever tricks around reference counting.
+
+This post covers why the core team wanted the GIL gone, why earlier attempts failed, and where the new code lives in the CPython source, starting with those three fields. All code links point to a fixed commit on `main` ([`c04ad8c`](https://github.com/python/cpython/tree/c04ad8ce36e35fba85468eec8a54f1688fa16972), October 2026, which is 3.16.0 alpha).
 
 ## What the GIL actually is
 
@@ -186,9 +190,8 @@ cd cpython
 
 Or install a `python3.14t` / `python3.15t` build from python.org or `uv python install 3.15t`.
 
-## Further reading
+## Sources
 
-**Official**
 - [PEP 703 – Making the GIL Optional in CPython](https://peps.python.org/pep-0703/)
 - [PEP 779 – Criteria for supported status for free-threaded Python](https://peps.python.org/pep-0779/)
 - [PEP 803 – "abi3t": Stable ABI for Free-Threaded Builds](https://peps.python.org/pep-0803/)
@@ -196,11 +199,7 @@ Or install a `python3.14t` / `python3.15t` build from python.org or `uv python i
 - [Steering Council notice on PEP 703 (July 2023)](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474)
 - [Python HOWTO: Python support for free threading](https://docs.python.org/3/howto/free-threading-python.html)
 - [Python HOWTO: C API extension support for free threading](https://docs.python.org/3/howto/free-threading-extensions.html)
-
-**In the CPython repo**
 - [`InternalDocs/`](https://github.com/python/cpython/tree/c04ad8ce36e35fba85468eec8a54f1688fa16972/InternalDocs): `garbage_collector.md`, `qsbr.md`, `stackrefs.md`, `interpreter.md`
-
-**Community**
 - [Python Free-Threading Guide](https://py-free-threading.github.io/)
 - [LWN: Free-threaded Python: past, present, and future](https://lwn.net/SubscriberLink/1078367/5800cc051d01e516/)
 - [Sam Gross's original nogil fork](https://github.com/colesbury/nogil)

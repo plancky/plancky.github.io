@@ -1,0 +1,12 @@
+{{ define "page" }}
+    <section class="flex flex-col gap-8">
+        <h1>{{ .Title }}</h1>
+        <ul class="flex flex-col gap-10">
+            {{ range .Pages }}
+                <li class="w-fit text-left">
+                    {{ partial "components/link" (dict "context" . "link_permalink" .RelPermalink "link_name" (printf "%s (%d)" .Title (len .Pages)) ) }}
+                </li>
+            {{ end }}
+        </ul>
+    </section>
+{{ end }}
