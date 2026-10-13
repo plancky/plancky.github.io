@@ -1,18 +1,18 @@
 {{ define "page" }}
-    <section>
-        <ul class="flex flex-col gap-10">
-            {{ range .RegularPages }}
-                <li class="flex items-baseline gap-4 text-left">
-                    {{ partial "components/link" (dict "context" . "link_permalink" .RelPermalink "link_name" .Title ) }}
-                    {{ range .GetTerms "categories" }}
-                        <a
-                            href="{{ .RelPermalink }}"
-                            class="text-sm text-accent hover:underline"
-                            >{{ .Title }}</a
-                        >
-                    {{ end }}
-                </li>
-            {{ end }}
-        </ul>
+    <section class="flex flex-col gap-16">
+        {{ range site.Taxonomies.categories.Alphabetical }}
+            <div class="flex flex-col gap-8">
+                <h2>
+                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+                </h2>
+                {{ partial "components/post_list" .Pages }}
+            </div>
+        {{ end }}
+        {{ with where .RegularPages "Params.categories" "==" nil }}
+            <div class="flex flex-col gap-8">
+                <h2>Other</h2>
+                {{ partial "components/post_list" . }}
+            </div>
+        {{ end }}
     </section>
 {{ end }}

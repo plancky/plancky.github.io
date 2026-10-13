@@ -3,7 +3,7 @@
         {{ if findRE `^http` .link_permalink }}
             target="_blank" rel="noopener"
         {{ end }}
-        class="text-lg transition-all duration-300"
+        class="text-[1.5rem] transition-all duration-300 lg:text-md"
         href="{{ .link_permalink }}"
         >{{ .link_name }}</a
     >
