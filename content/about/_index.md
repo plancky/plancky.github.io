@@ -4,13 +4,13 @@ outputs:
     - HTML
 ---
 
-Last Updated: 12 March 2026
+Last Updated: 12 Oct 2026
 
 Hi! My name is Shashvat Jain, good to see you around!
 
-I am a software engineer at [Lucio AI](https://www.lucioai.com/ "Lucio"), where I am mostly involved in web-dev but sometimes I help architect agents powered by the all-mighty LLMs :D 
+I am a software engineer, who specialises at playing around with agentic workflows and sucking the most value out of AI, previously working at [Lucio AI](https://www.lucioai.com/ "Lucio"), where I helped orchestrate agents powered by the all-mighty LLMs :D
 
-I also hold a bachelor's degree in Physics; which recently has helped me read sci-fi novels :P
+I also hold a bachelor's degree in Physics; which recently has helped me read sci-fi novels :P (it also has been a huge help in understanding what is under the hood of AI models)
 
 As of march of 2026, I have picked up on reading sci-fi novels, namely, [The Three-Body Problem](https://en.wikipedia.org/wiki/The_Three-Body_Problem_(novel)) and [Neuromancer](https://en.wikipedia.org/wiki/Neuromancer)
 
